@@ -92,10 +92,10 @@ class FFMPEGProc:
 
 class TqdmAbsolute(tqdm):
     def __init__(self, *args, **kwargs):
-        kwargs['bar_format'] = '{l_bar}{bar}|{n:.1f}/{total:.1f} [{elapsed}<{remaining}]'
+        kwargs['bar_format'] = '{l_bar}{bar}|{n:.1f}s/{total:.1f}s [{elapsed}...{remaining}]'
         kwargs['dynamic_ncols'] = True
         if not 'total' in kwargs:
-            kwargs['total'] = 99999999
+            kwargs['total'] = 0
         if not 'leave' in kwargs:
             kwargs['leave'] = False
         super().__init__(*args, **kwargs)
